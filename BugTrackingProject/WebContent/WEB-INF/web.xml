@@ -5,4 +5,13 @@
     <welcome-file>index.html</welcome-file>
 
   </welcome-file-list>
+  
+  <servlet>
+  	<servlet-name>importusers</servlet-name>
+  	<servlet-class>com.code.servlet.ImportUsersServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>importusers</servlet-name>
+  	<url-pattern>/importusers</url-pattern>
+  </servlet-mapping>
 </web-app>
