@@ -14,7 +14,7 @@
 	response.setDateHeader("Expires", 0); */
 	User user = null;
 	String type = (String) session.getAttribute("type");
-	if (type != null && type.equals("developer") || type.equals("manager") || type.equals("tester")) {
+	if (type != null && type.equals("developer") || type.equals("project manager") || type.equals("tester")) {
 		user = (User) session.getAttribute("user");
 	} else {
 		response.sendRedirect("http://localhost:8080/BugTrackingProject/login.jsp");
