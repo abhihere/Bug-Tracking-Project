@@ -28,6 +28,7 @@ insert into usertable values(DEFAULT,'harry','harry@gmail.com','project manager'
 ----------------------------------------------------------------------------------(NEW) QUERIES---------------------------------------------------------------------------------
 alter table teamtable add managerid int;
 alter table logintable add unique(userid);
+alter table usertable add unique(email);
 
 drop table developer;
 drop table tester;
