@@ -1,6 +1,6 @@
+// Authors : Hrushikesh
+// Purpose : class for service layer
 package com.code.service;
-
-import java.sql.SQLException;
 
 import com.code.bean.User;
 import com.code.dao.UserDao;
@@ -15,7 +15,7 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public User validateUser(String userName, String password) throws SQLException {
+	public User validateUser(String userName, String password)  {
 		return userDao.validateUser(userName, password);
 	}
 
