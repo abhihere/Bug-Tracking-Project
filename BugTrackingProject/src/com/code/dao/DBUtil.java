@@ -1,3 +1,7 @@
+
+//Author : Adrija Ghansiyal
+//Purpose : Database connection
+
 package com.code.dao;
 
 import java.sql.Connection;
@@ -6,6 +10,8 @@ import java.sql.SQLException;
 
 public class DBUtil {
 	static Connection conn=null;
+	
+	//Establishing connection
 	public static Connection getMyConnection() {
 		if(conn==null) {
 			try {
@@ -28,11 +34,12 @@ public class DBUtil {
 		return conn;
 	}
 	
+
+	//closing connection
 	public static void closeMyConnection() {
 		try {
 			conn.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

@@ -11,11 +11,12 @@ public class Bug {
 	private int bugId;
 	private String bugTitle;
 	private	String bugDescription;
-	private String createdBy;
+	private int projectId;
+	private int createdBy;
 	private Date openDate;
-	private String assignedTo;
-	private boolean markedForClosing;
-	private String closedBy;
+	private int assignedTo;
+	private String markedForClosing;
+	private int closedBy;
 	private Date closedOn;
 	private String status;	// open/closed
 	private String severityLevel;	// critical/major/minor/trivial
@@ -26,23 +27,26 @@ public class Bug {
 		bugId = 0;
 		bugTitle = null;
 		bugDescription = null;
-		createdBy = null;
+		projectId = 0;
+		createdBy = 0;
 		openDate = null;
-		assignedTo = null;
-		markedForClosing = false;
-		closedBy = null;
+		assignedTo = 0;
+		markedForClosing = null;
+		closedBy = 0;
 		closedOn = null;
 		status = "closed";
 		severityLevel = "trivial";
 	}
 	
 	//parameterized constructor
-	public Bug(int bugId, String bugTitle, String bugDescription, String createdBy, Date openDate, String assignedTo,
-			boolean markedForClosing, String closedBy, Date closedOn, String status, String severityLevel) {
+	public Bug(int bugId, String bugTitle, String bugDescription,int projectId, int createdBy,
+			Date openDate, int assignedTo, String markedForClosing, int closedBy, Date closedOn,
+			String status, String severityLevel) {
 		super();
 		this.bugId = bugId;
 		this.bugTitle = bugTitle;
 		this.bugDescription = bugDescription;
+		this.projectId = projectId;
 		this.createdBy = createdBy;
 		this.openDate = openDate;
 		this.assignedTo = assignedTo;
@@ -78,11 +82,19 @@ public class Bug {
 		this.bugDescription = bugDescription;
 	}
 
-	public String getCreatedBy() {
+	public int getProjectId() {
+		return projectId;
+	}
+
+	public void setProjectId(int projectId) {
+		this.projectId = projectId;
+	}
+	
+	public int getCreatedBy() {
 		return createdBy;
 	}
 
-	public void setCreatedBy(String createdBy) {
+	public void setCreatedBy(int createdBy) {
 		this.createdBy = createdBy;
 	}
 
@@ -94,27 +106,27 @@ public class Bug {
 		this.openDate = openDate;
 	}
 
-	public String getAssignedTo() {
+	public int getAssignedTo() {
 		return assignedTo;
 	}
 
-	public void setAssignedTo(String assignedTo) {
+	public void setAssignedTo(int assignedTo) {
 		this.assignedTo = assignedTo;
 	}
 
-	public boolean isMarkedForClosing() {
+	public String isMarkedForClosing() {
 		return markedForClosing;
 	}
 
-	public void setMarkedForClosing(boolean markedForClosing) {
+	public void setMarkedForClosing(String markedForClosing) {
 		this.markedForClosing = markedForClosing;
 	}
 
-	public String getClosedBy() {
+	public int getClosedBy() {
 		return closedBy;
 	}
 
-	public void setClosedBy(String closedBy) {
+	public void setClosedBy(int closedBy) {
 		this.closedBy = closedBy;
 	}
 
