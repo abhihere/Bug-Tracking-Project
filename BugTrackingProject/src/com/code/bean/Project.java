@@ -13,6 +13,7 @@ public class Project {
 	private String description;
 	private Date startDate;
 	private String status;	//In-progress/completed
+	private int managerId;
 	//team members column
 	
 	//default constructor
@@ -23,17 +24,20 @@ public class Project {
 		description = null;
 		startDate = null;
 		status = null;
+		managerId = 0;
 		//team members
 	}
 	
 	//parameterized constructor
-	public Project(int projectId, String projectName, String description, Date startDate, String status) {
+	public Project(int projectId, String projectName, String description, Date startDate,
+			String status, int managerId) {
 		
 		this.projectId = projectId;
 		this.projectName = projectName;
 		this.description = description;
 		this.startDate = startDate;
 		this.status = status;
+		this.managerId = managerId;
 		//team members
 	}
 
@@ -78,11 +82,19 @@ public class Project {
 		this.status = status;
 	}
 
+	public int getManagerId() {
+		return managerId;
+	}
+
+	public void setManagerId(int managerId) {
+		this.managerId = managerId;
+	}
+
 	//Overriding toString method
 	@Override
 	public String toString() {
 		return "Project ID = " + projectId + "\nProject Name = " + projectName + "\nDescription = " + description
-				+ "\nStart Date = " + startDate + "\nStatus = " + status;
+				+ "\nStart Date = " + startDate + "\nStatus = " + status + "\nManager ID = "+managerId;
 	}
 	
 	

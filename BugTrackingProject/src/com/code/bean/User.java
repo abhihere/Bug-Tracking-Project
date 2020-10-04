@@ -3,33 +3,33 @@
 
 package com.code.bean;
 
-abstract public class User {
+public class User {
 		
 	//data members
-	int userId;
-	private String userName;
+	private int userId;
+	private String name;
 	private String email;
-	private String typeOfUser;
+	private String type;
 	
 	//default constructor
 	public User() {
-		
+		super();
 		userId = 0;
-		userName = null;
+		name = null;
 		email = null;
-		typeOfUser = null;
-	}
-	
-	//parameterized constructor
-	public User(int userId, String userName, String email, String typeOfUser) {
-	
-		this.userId = userId;
-		this.userName = userName;
-		this.email = email;
-		this.typeOfUser = typeOfUser;
+		type = null;
 	}
 
-	//setter and getter methods
+	//parameterized constructor
+	public User(int userId, String name, String email, String type) {
+		super();
+		this.userId = userId;
+		this.name = name;
+		this.email = email;
+		this.type = type;
+	}
+
+	//setter and getter methods 
 	public int getUserId() {
 		return userId;
 	}
@@ -38,12 +38,12 @@ abstract public class User {
 		this.userId = userId;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getName() {
+		return name;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getEmail() {
@@ -54,17 +54,18 @@ abstract public class User {
 		this.email = email;
 	}
 
-	public String getTypeOfUser() {
-		return typeOfUser;
+	public String getType() {
+		return type;
 	}
 
-	public void setTypeOfUser(String typeOfUser) {
-		this.typeOfUser = typeOfUser;
+	public void setType(String type) {
+		this.type = type;
 	}
 
-	//Overriding toString method
 	@Override
 	public String toString() {
-		return "User ID = " + userId + "\nUser Name = " + userName + "\nE-mail = " + email + "\nType Of User = " + typeOfUser;
+		return "User [userId=" + userId + ", name=" + name + ", email=" + email + ", type=" + type + "]";
 	}
+	
+	
 }
