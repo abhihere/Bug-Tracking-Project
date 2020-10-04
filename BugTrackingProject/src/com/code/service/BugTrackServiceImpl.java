@@ -12,6 +12,16 @@ import com.code.dao.BugTrackDao;
 import com.code.dao.BugTrackDaoImpl;
 
 public class BugTrackServiceImpl implements BugTrackService{
+	BugTrackDao bugTrackDao;
+	public BugTrackServiceImpl() {
+		bugTrackDao = new BugTrackDaoImpl();
+	}
+
+	// Function to save imported users into database
+	@Override
+	public int importUsers(List<User> userList) {
+		return bugTrackDao.importUsers(userList);
+	}
 	
 	BugTrackDao bugTrackDao = new BugTrackDaoImpl();
 	
@@ -24,7 +34,6 @@ public class BugTrackServiceImpl implements BugTrackService{
 	// Function to get project list
 		@Override
 		public List<Project> getAllProjects(int userid) {
-			
 			
 			return bugTrackDao.getAllProjects(userid);
 		}

@@ -5,11 +5,13 @@ package com.code.service;
 
 import java.util.List;
 
+
 import com.code.bean.Bug;
 import com.code.bean.Project;
 import com.code.bean.User;
 
 public interface BugTrackService {
+
 
 	//Method to call dao layer and save imported users into db
 	int importUsers(List<User> userList);

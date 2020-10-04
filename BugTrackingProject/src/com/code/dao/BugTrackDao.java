@@ -1,9 +1,7 @@
 // Authors : Akanksha Shrivastava,Adrija Ghansiyal, Abhijeet Nitin Raut
 // Purpose : 
 package com.code.dao;
-
 import java.util.List;
-
 import com.code.bean.Bug;
 import com.code.bean.Project;
 import com.code.bean.User;

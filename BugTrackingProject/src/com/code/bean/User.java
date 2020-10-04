@@ -20,6 +20,7 @@ public class User {
 		type = null;
 	}
 
+
 	//parameterized constructor
 	public User(int userId, String name, String email, String type) {
 		super();
@@ -28,6 +29,7 @@ public class User {
 		this.email = email;
 		this.type = type;
 	}
+
 
 	//setter and getter methods 
 	public int getUserId() {

@@ -1,3 +1,4 @@
+
 //Author : Adrija Ghansiyal
 //Purpose : Database connection
 
@@ -33,12 +34,12 @@ public class DBUtil {
 		return conn;
 	}
 	
+
 	//closing connection
 	public static void closeMyConnection() {
 		try {
 			conn.close();
 		} catch (SQLException e) {
-			
 			e.printStackTrace();
 		}
 		
