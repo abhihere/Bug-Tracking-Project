@@ -17,7 +17,8 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	static Connection con;
-
+	
+	//authenticate user using userName and password
 	@Override
 	public User validateUser(String userName, String password) throws SQLException {
 		String sql = "select * from login where email = ? and password = ?";
@@ -42,7 +43,8 @@ public class UserDaoImpl implements UserDao {
 			return null;			
 		}
 	}
-
+	
+	//add user into database
 	@Override
 	public int addUser(String name, String type, String email) throws SQLException {
 		String sql = "insert into user (name, email, type) values (?, ?, ?)";

@@ -14,6 +14,7 @@ public class UserServiceImpl implements UserService {
 		userDao = new UserDaoImpl();
 	}
 	
+	//authenticate user using userName and password
 	@Override
 	public User validateUser(String userName, String password) throws SQLException {
 		return userDao.validateUser(userName, password);
