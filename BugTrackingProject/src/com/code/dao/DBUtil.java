@@ -20,6 +20,7 @@ public class DBUtil {
 			String url = "jdbc:derby:C:\\bugtrackproject\\bugtrackdb";
 	        String user = "hsbc";
 	        String password = "hsbc123";
+	        System.setProperty("derby.language.sequence.preallocator", "1");
 	        
 			conn = DriverManager.getConnection(url, user, password);
 			if (conn != null) {
