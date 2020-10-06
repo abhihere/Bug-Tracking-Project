@@ -15,6 +15,7 @@
 			response.sendRedirect("http://localhost:8080/BugTrackingProject/login.jsp");
 		}
 	%>
-	<a href="logout">LogOut</a>
+	<h2>Display tester page here (links etc.)</h2>
+	<a href="#">LogOut</a>
 </body>
 </html>

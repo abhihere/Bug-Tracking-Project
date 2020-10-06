@@ -11,10 +11,11 @@
 	<jsp:include page="header.jsp"></jsp:include>
 	<%
 		String type = (String) session.getAttribute("type");
-		if (!type.equals("manager")) {
+		if (!type.equals("project manager")) {
 			response.sendRedirect("http://localhost:8080/BugTrackingProject/login.jsp");
 		}
 	%>
+	<h2>Display project manager page here (links etc.)</h2>
 	<a href="logout">Log Out</a>
 </body>
 </html>

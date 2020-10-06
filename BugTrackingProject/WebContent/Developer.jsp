@@ -10,11 +10,12 @@
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	<%
-		String type = (String) session.getAttribute("type");
+	String type = (String) session.getAttribute("type");
 	if (!type.equals("developer")) {
 		response.sendRedirect("http://localhost:8080/BugTrackingProject/login.jsp");
 	}
 	%>
-	<a href="logout">Log Out</a>
+	<h2>Display developer page here (links etc.)</h2>
+	<a href="#">Log Out</a>
 </body>
 </html>
