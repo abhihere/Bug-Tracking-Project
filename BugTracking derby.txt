@@ -65,4 +65,4 @@ insert into count values(102,'tom','developer',1);
 insert into count values(103,'draco','developer',1);
 insert into count values(301,'ginny','developer',1);
 
-
+alter table bugtable add remarks varchar(40);
