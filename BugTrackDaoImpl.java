@@ -31,7 +31,7 @@ public class BugTrackDaoImpl implements BugTrackDao {
 			//write preparedStatements here
 			
 			//to import users from json to db
-			inserimportedusers = conn.prepareStatement("insert into usertable values(DEFAULT,?,?,?)");
+			inserimportedusers = conn.prepareStatement("insert into usertable values(DEFAULT,?,?,?,0)");
 			//to get the project details based on the user of the team member involved
 			pgetAllProjects=conn.prepareStatement("select * from projecttable p join teamtable t on p.projectid=t.projectid where t.userid=?");
 			pgetAllPMProjects=conn.prepareStatement("select * from projecttable where managerid=?");
@@ -173,7 +173,11 @@ public class BugTrackDaoImpl implements BugTrackDao {
 		try {
 		assigndev.setInt(1, userId);
 		assigndev.setInt(2, bugId);
-		return assigndev.execute();
+		int n= assigndev.executeUpdate();
+		if(n!=0)
+			return true;
+		else 
+			return false;
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
