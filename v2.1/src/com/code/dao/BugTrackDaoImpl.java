@@ -1,4 +1,4 @@
-// Author : Akanksha Shrivastava, Adrija Ghansiyal, Abhijeet Nitin Raut, dharampreet
+// Author : Akanksha Shrivastava, Adrija Ghansiyal, Abhijeet Nitin Raut, dharampreet,Bharadwaj Divate
 // Purpose : Establish connection with derby db & run queries to fetch/add/modify data
 
 package com.code.dao;
@@ -31,7 +31,7 @@ public class BugTrackDaoImpl implements BugTrackDao {
 			//write preparedStatements here
 			
 			//to import users from json to db
-			inserimportedusers = conn.prepareStatement("insert into usertable values(DEFAULT,?,?,?,0)");
+			inserimportedusers = conn.prepareStatement("insert into usertable values(DEFAULT,?,?,?)");
 			//to get the project details based on the user of the team member involved
 			pgetAllProjects=conn.prepareStatement("select * from projecttable p join teamtable t on p.projectid=t.projectid where t.userid=?");
 			pgetAllPMProjects=conn.prepareStatement("select * from projecttable where managerid=?");
@@ -43,11 +43,10 @@ public class BugTrackDaoImpl implements BugTrackDao {
 			pgetAllBugs = conn.prepareStatement("select * from bugtable where projectid = ? and status='open'");
 			//to close the bug
 			closebug= conn.prepareStatement("update bugtable set status='close' where uniqueId=?");
-			//assign dev to a bug
-			assigndev=conn.prepareStatement("update bugtable set assignedto=? where uniqueid=?");
+			//assign dev
+			//assigndev=conn.prepareStatement("");
 			//report new bug
-			//pinsBug = conn.prepareStatement("insert into bugtable(uniqueid,title,description,projectid,createdby,opendate,status,severitylevel) values(default,?,?,?,?,?,?,?)");
-			pinsBug = conn.prepareStatement("insert into bugtable(uniqueid,title,description,projectid,createdby,status,severitylevel) values(default,?,?,?,?,?,?)");
+			pinsBug = conn.prepareStatement("insert into bugtable(title,description,projectid,createdby,opendate,status,severitylevel) values(?,?,?,?,?,?,?)");
 			
 		} catch (SQLException e) {
 			
@@ -150,7 +149,7 @@ public class BugTrackDaoImpl implements BugTrackDao {
 		}
 		return null;
 	}
-//bug close by manager
+
 	@Override
 	public boolean closeBug(int bugId) {
 		try {
@@ -167,22 +166,19 @@ public class BugTrackDaoImpl implements BugTrackDao {
 		}
 		
 	}
-	//assigning dev to bug by manager
 	@Override
 	public boolean assignDev(int bugId, int userId) {
-		try {
-		assigndev.setInt(1, userId);
-		assigndev.setInt(2, bugId);
-		int n= assigndev.executeUpdate();
-		if(n!=0)
+		//try {
+//			assigndev.setInt(1, bugId);
+//			assigndev.setInt(2, userId);
+//			return assigndev.execute();
+			//System.out.println(bugId+" "+userId);
 			return true;
-		else 
-			return false;
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return false;
-		}
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//			return false;
+		//}
 		
 		
 	}
@@ -192,18 +188,19 @@ public class BugTrackDaoImpl implements BugTrackDao {
 	public int addNewBug(Bug bug) {
 		try {
 			System.out.println(bug);
+			java.sql.Date date = new java.sql.Date((bug.getOpenDate()).getTime());
+			System.out.println(date);
+			System.out.println(bug.getBugTitle());
 			pinsBug.setString(1, bug.getBugTitle());
 			pinsBug.setString(2, bug.getBugDescription());
 			pinsBug.setInt(3, bug.getProjectId());
 			pinsBug.setInt(4, bug.getCreatedBy());
-//			Date d=bug.getOpenDate();
-//			DateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
-//			//java.sql.Date date = new java.sql.Date(bug.getOpenDate().getTime());
-//			pinsBug.setDate(5, formatter.format(d));
+			pinsBug.setDate(5, date);
 			pinsBug.setString(6, bug.getStatus());
 			pinsBug.setString(7, bug.getSeverityLevel());
-			return pinsBug.executeUpdate();
 			
+			int n=pinsBug.executeUpdate();
+			return n;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
